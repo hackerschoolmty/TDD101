@@ -43,5 +43,19 @@ describe StringCalculator do
         expect( StringCalculator.add("//;\n1;2\n3;4") ).to eql 10
       end
     end
+
+    context "when adding negative numbers" do
+      it "raises an error for '1,-2'" do
+        expect { StringCalculator.add("1,-2") }.to raise_error("negatives not allowed: -2")
+      end
+
+      it "raises an error for '1,-2,-3,-4'" do
+        expect { StringCalculator.add("1,-2,-3,-4") }.to raise_error("negatives not allowed: -2,-3,-4")
+      end
+
+      it "does not raise an error for '//-\n1-2-3-4'" do
+        expect { StringCalculator.add("//-\n1-2-3-4") }.to_not raise_error
+      end
+    end
   end
 end
