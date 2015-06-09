@@ -27,5 +27,11 @@ describe StringCalculator do
         expect( StringCalculator.add("1,2,3,4") ).to eql 10
       end
     end
+
+    context "when it adds numbers separated by a newline and commas" do
+      it "returns 6 for '1\n2,3'" do
+        expect( StringCalculator.add("1\n2,3") ).to eql 6
+      end
+    end
   end
 end
