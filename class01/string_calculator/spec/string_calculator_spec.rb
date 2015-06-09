@@ -33,5 +33,15 @@ describe StringCalculator do
         expect( StringCalculator.add("1\n2,3") ).to eql 6
       end
     end
+
+    context "when it add numbers separated by a custom delimeter" do
+      it "returns 3 for '//;\n1;2'" do
+        expect( StringCalculator.add("//;\n1;2") ).to eql 3
+      end
+
+      it "returns 10 for '//;\n1;2\n3;4'" do
+        expect( StringCalculator.add("//;\n1;2\n3;4") ).to eql 10
+      end
+    end
   end
 end
