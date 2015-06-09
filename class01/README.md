@@ -35,9 +35,6 @@ Run `gem install rspec`.
 	describe Example do
 		describe "#my_instance_method" do
 			it "returns a string" do
-				before do
-					example = Example.new
-				end
 				expect(example.my_instance_method).to eql "I am an instance method"
 			end
 		end
