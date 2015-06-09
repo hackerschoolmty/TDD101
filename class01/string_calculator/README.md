@@ -20,6 +20,11 @@ Steps
 	2. the first line is optional. all existing scenarios should still be supported
 5. Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed.if there are multiple negatives, show all of them in the exception message
 
+**Extra**
+
+6. Numbers bigger than 1000 should be ignored, so adding 2 + 1001  = 2
+7. Delimiters can be of any length with the following format:  “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
+
 Source:
 
 - http://osherove.com/tdd-kata-1/
