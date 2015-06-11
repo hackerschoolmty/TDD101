@@ -10,7 +10,8 @@ Create a FizzBuzz playing game. The play method will receive a number and play F
 
 1. Numbers divisible by 3, the game says "Fizz"
 2. Numbers divisible by 5, the game says "Buzz"
-3. Anyother number the game says that number
+3. Numbers divisible by 3 **and** 5, the game says "FizzBuzz"
+4. Anyother number the game says that number
 
 #### Step 2
 

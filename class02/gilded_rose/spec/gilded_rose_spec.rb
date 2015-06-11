@@ -3,10 +3,10 @@ require 'gilded_rose'
 
 describe GildedRose do
 
-  describe '.tick' do
+  describe '#tick' do
     context "with a normal object" do
 
-      it 'normal_item_before_sell' do
+      it 'before sell date' do
         item =  GildedRose.new('normal', 10, 5)
         item.tick
 
@@ -14,7 +14,7 @@ describe GildedRose do
         expect(item.days_remaining).to eql 4
       end
 
-      it 'normail_item_on_sell_date' do
+      it 'on sell date' do
         item =  GildedRose.new('normal', 10, 0)
         item.tick
 
@@ -22,7 +22,7 @@ describe GildedRose do
         expect(item.days_remaining).to eql -1
       end
 
-      it 'normal_item_after_sell_date' do
+      it 'after sell date' do
         item =  GildedRose.new('normal', 10, -10)
         item.tick
 
@@ -30,7 +30,7 @@ describe GildedRose do
         expect(item.days_remaining).to eql -11
       end
 
-      it 'normal_item_on_zero_quality' do
+      it 'on zero quality' do
         item =  GildedRose.new('normal', 0, 5)
         item.tick
 
@@ -41,8 +41,8 @@ describe GildedRose do
 
     context 'with a brie object' do
 
-      context 'before_sell' do
-        it 'brie_item' do
+      context 'before sell' do
+        it 'brie item with normal quality' do
           item =  GildedRose.new('Aged Brie', 10, 5)
           item.tick
 
@@ -50,7 +50,7 @@ describe GildedRose do
           expect(item.days_remaining).to eql 4
         end
 
-        it 'brie_item_with_max_quality' do
+        it 'brie item with max quality' do
           item =  GildedRose.new('Aged Brie', 50, 5)
           item.tick
 
@@ -59,8 +59,8 @@ describe GildedRose do
         end
       end
 
-      context 'on_sell_date' do
-        it 'brie_item' do
+      context 'on sell date' do
+        it 'brie item with normal quality' do
           item =  GildedRose.new('Aged Brie', 10, 0)
           item.tick
 
@@ -68,7 +68,7 @@ describe GildedRose do
           expect(item.days_remaining).to eql -1
         end
 
-        it 'brie_item_near_max_quality' do
+        it 'brie item near max quality' do
           item =  GildedRose.new('Aged Brie', 49, 5)
           item.tick
 
@@ -76,7 +76,7 @@ describe GildedRose do
           expect(item.days_remaining).to eql 4
         end
 
-        it 'brie_item_with_max_quality' do
+        it 'brie item with max quality' do
           item =  GildedRose.new('Aged Brie', 50, 5)
           item.tick
 
@@ -85,16 +85,8 @@ describe GildedRose do
         end
       end
 
-      context 'after_sell_date' do
-        it 'brie_item' do
-          item =  GildedRose.new('Aged Brie', 10, -10)
-          item.tick
-
-          expect(item.quality).to eql 12
-          expect(item.days_remaining).to eql -11
-        end
-
-        it 'brie_item' do
+      context 'after sell date' do
+        it 'brie item' do
           item =  GildedRose.new('Aged Brie', 10, -10)
           item.tick
 
