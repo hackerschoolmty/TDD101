@@ -10,7 +10,8 @@ class GildedRose
       normal_tick
     elsif @name == 'Aged Brie'
       brie_tick
-    elsif @name == 'Sulfuras, Hand of Ragnaros'      
+    elsif @name == 'Backstage passes to a TAFKAL80ETC concert'
+      backstage_tick
     else
       if @name != 'Aged Brie' && @name != 'Backstage passes to a TAFKAL80ETC concert'
         if @quality > 0
@@ -69,6 +70,17 @@ class GildedRose
     def brie_tick
       @quality += 1 if @quality < 50
       @quality += 1 if @days_remaining <= 0
+
+      @days_remaining -= 1
+    end
+
+    def backstage_tick
+      if @quality != 50
+        @quality += 3 if @days_remaining <= 5
+        @quality += 1 if @days_remaining > 10
+        @quality += 2 if @days_remaining <= 10 && @days_remaining > 5
+      end
+      @quality = 0 if @days_remaining <= 0
 
       @days_remaining -= 1
     end
