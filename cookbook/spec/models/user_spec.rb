@@ -21,4 +21,8 @@ RSpec.describe User, :type => :model do
     it { is_expected.to_not allow_value('jesuslerma').for(:username) }
     it { is_expected.to validate_uniqueness_of(:username) }
   end
+
+  context "associations" do
+    it { is_expected.to have_many(:recipes) }
+  end
 end

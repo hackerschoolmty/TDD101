@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
     message: "Username must have at least 1 number and 1 upcase letter"
   }
   validates :username,  uniqueness: true
+
+  has_many :recipes
 end

@@ -3,6 +3,7 @@ FactoryGirl.define do
     title "My first recipe"
     description FFaker::Lorem.paragraph
     instructions FFaker::Lorem.paragraphs
+    user { FactoryGirl.create :user }
 
     factory :short_recipe do
       instructions FFaker::Lorem.characters(99)
