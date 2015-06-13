@@ -4,11 +4,11 @@ FactoryGirl.define do
   end
 
   factory :user do
-    email FFaker::Internet.email
+    email { FFaker::Internet.email }
     password "12345678"
     password_confirmation "12345678"
     username
-    full_name FFaker::Name.name
-    bio FFaker::Lorem.paragraph   
+    full_name { FFaker::Name.name }
+    bio { FFaker::Lorem.paragraph }
   end
 end

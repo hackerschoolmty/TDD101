@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :recipe do
     title "My first recipe"
-    description FFaker::Lorem.paragraph
-    instructions FFaker::Lorem.paragraphs
+    description { FFaker::Lorem.paragraph }
+    instructions { FFaker::Lorem.paragraphs }
     user { FactoryGirl.create :user }
 
     factory :short_recipe do
