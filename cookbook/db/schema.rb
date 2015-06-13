@@ -11,15 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613180258) do
+ActiveRecord::Schema.define(version: 20150613224233) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["recipe_id"], name: "index_favorites_on_recipe_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "recipes", force: :cascade do |t|
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "title",        default: ""
-    t.text     "description",  default: ""
-    t.text     "instructions", default: ""
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "title",          default: ""
+    t.text     "description",    default: ""
+    t.text     "instructions",   default: ""
     t.integer  "user_id"
+    t.integer  "favorite_count"
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
