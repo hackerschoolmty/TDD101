@@ -3,11 +3,14 @@
 ## Class 01: Introduction to TDD
 
 ### What is TDD?
+
 TDD stands for **Test-Driven Development**. It's a technique for building software that **guides** software development by writing tests.  It was created by **Kent Beck** as part of Extreme Programming. 
 
-It is a rapid cycle of testing, coding, and refactoring, also known as "Red/Green/Refactor". The developer first writes an automated test case
-which defines a desired function (Failing/Red Test), then produces the
-minimum code to pass the test (), and finally refactors
+It is a rapid cycle of testing, coding, and refactoring, also known as "Red/Green/Refactor". The developer:
+
+- First writes an automated test case which defines a desired function (Failing/Red Test), 
+- Then produces the minimum code to pass the test 
+- And finally refactors
 the code to an acceptable standard
 
 
@@ -19,26 +22,29 @@ RSpec is a tool for writing **human readable** specifications (tests).
 
 **Getting Started**
 
-Run `gem install rspec`.
+Run in your terminal
 
-`rspec --init` will init rspec in your current directory
+```bash
+gem install rspec
+rspec --init
+```
 
-**
+ The last one will init rspec in your current directory
+
 
 **Describing the class 'Example'**
 
 ```ruby
-	
-	require 'spec_helper'
-	require 'example'
+require 'spec_helper'
+require 'example'
 
-	describe Example do
-		describe "#my_instance_method" do
-			it "returns a string" do
-				expect(example.my_instance_method).to eql "I am an instance method"
-			end
-		end
+describe Example do
+  describe "#my_instance_method" do
+   it "returns a string" do
+	 expect(example.my_instance_method).to eql "I am an instance method"
 	end
+   end
+end
 
 ```
 
